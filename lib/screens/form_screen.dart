@@ -1,3 +1,5 @@
+import 'package:agendador_tarefas/components/task.dart';
+import 'package:agendador_tarefas/data/task_dao.dart';
 import 'package:agendador_tarefas/data/task_inherited.dart';
 import 'package:flutter/material.dart';
 
@@ -148,11 +150,12 @@ class _FormScreenState extends State<FormScreen> {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        TaskInherited.of(widget.taskContext).newTask(
+                        TaskDao().save(Task(
                           nameController.text,
                           imageController.text,
                           int.parse(difficultController.text),
-                        );
+                        ));
+
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Criando nova Tarefa'),

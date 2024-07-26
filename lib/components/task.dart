@@ -1,3 +1,4 @@
+import 'package:agendador_tarefas/data/task_dao.dart';
 import 'package:flutter/material.dart';
 
 import 'difficult.dart';
@@ -97,6 +98,9 @@ class _TaskState extends State<Task> {
                           backgroundColor: Colors.blue,
                           foregroundColor: Colors.white,
                         ),
+                        onLongPress: () {
+                          TaskDao().delete(widget.nome);
+                        },
                         onPressed: () {
                           setState(() {
                             widget.nivel++;
