@@ -1,3 +1,5 @@
+import 'package:agendador_tarefas/data/task_inherited.dart';
+import 'package:agendador_tarefas/screens/form_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/initial_screen.dart';
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const InitialScreen(),
+      home: TaskInherited(child: const InitialScreen(),),
     );
   }
 }
